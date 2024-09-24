@@ -9,17 +9,17 @@ const Login = ({navigation}) => {
     const [aman, setAman] = useState (true);
     const [isFocused, setIsFocused] = useState(false);
 
-    const isSelected = ()=>{
-        setSelection(!selected);
-    };
-
     const focus = ()=>{
         setIsFocused(true)
     }
-
+    
     const blur = () => {
         setIsFocused(false);
-      };
+    };
+    
+    const isSelected = ()=>{
+        setSelection(!selected);
+    };
 
     const cariAman = ()=>{
         setAman(!aman)
@@ -70,27 +70,32 @@ const Login = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle={'dark-content'} backgroundColor={'white'}/>
+
+      {/* Header */}
       <Image source={require('../assets/Sisambi.png')} style={styles.icon}/>
       <Text style={styles.text}>DISAMBI</Text>
 
+        {/* Username Input */}
       <View>
         <Text style={styles.text1}>Username</Text>
         <TextInput 
         placeholder='Masukan username'
         placeholderTextColor={'black'}
-        style={[styles.Input, {borderColor: isFocused ? 'red' : 'gray',}]}
+        style={[styles.Input, {borderColor: isFocused ? 'blue' : 'gray',}]}
         value={username}
         onChangeText={text => setUsername(text)}
         onFocus={focus}
         onBlur={blur}
         />
 
+
+        {/* Password Input */}
         <View style={styles.bawah}>
 
         
         <Text style={styles.text1}>Password</Text>
 
-        <View style={[styles.pass, {borderColor: isFocused ? 'gray' : 'red',}]}>
+        <View style={[styles.pass, {borderColor: isFocused ? 'gray' : 'blue',}]}>
         <TextInput placeholder='Masukan Password' 
         placeholderTextColor={'black'}
         style={[styles.Input1]}
@@ -112,6 +117,8 @@ const Login = ({navigation}) => {
 
         </View>
 
+        
+        {/* Ingatkan Saya */}
         <View style={styles.bagian_check}>
         <TouchableOpacity onPress={isSelected} activeOpacity={0.7}>
 
@@ -125,6 +132,8 @@ const Login = ({navigation}) => {
         <TouchableOpacity>
             
         </TouchableOpacity>
+
+        {/* Log in Button */}
         <View style={styles.bawah1}>
             <TouchableOpacity style={styles.tombol} onPress={()=> login()}>
                 <Text style={styles.text2}>Log in</Text>
