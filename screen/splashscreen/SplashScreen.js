@@ -6,14 +6,14 @@ const SplashScreen = ({navigation}) => {
     useEffect(()=>{
         setTimeout(() => {
           navigation.replace('Choice')
-        }, 7000);
+        }, 4000);
       })
     
   return (
     <View style={styles.container}>
       <StatusBar barStyle={'dark-content'} backgroundColor={'white'}/>
       <Image source={require('../assets/Sisambi.png')} style={styles.icon}/>
-      <Text style={styles.text}>Disambi</Text>
+      {/* <Text style={styles.text}>Disambi</Text> */}
     </View>
   )
 }
